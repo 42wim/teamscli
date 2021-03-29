@@ -7,9 +7,10 @@ import (
 )
 
 type Cmd struct {
-	Root     *cobra.Command
-	cmds     map[string]*cobra.Command
-	duration string
+	Root          *cobra.Command
+	cmds          map[string]*cobra.Command
+	duration      string
+	showonmessage bool
 }
 
 func New() *Cmd {
@@ -33,6 +34,7 @@ func (c *Cmd) Execute() {
 func (c *Cmd) setup() {
 	c.cmds = make(map[string]*cobra.Command)
 	c.addPresenceCmd()
+	c.addStatusCmd()
 
 	for _, ccmd := range c.cmds {
 		c.Root.AddCommand(ccmd)
