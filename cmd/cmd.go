@@ -7,9 +7,9 @@ import (
 )
 
 type Cmd struct {
-	Root  *cobra.Command
-	cmds  map[string]*cobra.Command
-	until string
+	Root     *cobra.Command
+	cmds     map[string]*cobra.Command
+	duration string
 }
 
 func New() *Cmd {
